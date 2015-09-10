@@ -21,7 +21,7 @@
 #
 ######################################################################
 
-"""Giles backend for SQLite."""
+"""Giles backend for mysql."""
 
 __author__ = "Rob King"
 __copyright__ = "Copyright (C) 2011-2014 KoreLogic, Inc. All Rights Reserved."
@@ -59,7 +59,7 @@ indexes = {}      # The indexes on each fact table
 
 def generate_expression(value, fact, frame_prefix=None, fact_prefix=None):
     """
-    value        - the expression or value to SQLize
+    value        - the expression or value to MySQLize
     fact        - the fact being matched
     frame_prefix - frame prefix
     fact_prefix - fact prefix
@@ -493,9 +493,9 @@ def generate(new_prefix, filename, description, facts, parameters, rules):
     #
     ####################################################################
 
-    template_file = resource_string(__name__, 'sqlite.jinja').decode('utf-8')
-    env = jinja2.Environment(loader=jinja2.FunctionLoader(lambda x: (template_file, 'sqlite.jinja', lambda: template_file)))
-    template = env.get_template('sqlite.jinja')
+    template_file = resource_string(__name__, 'mysql.jinja').decode('utf-8')
+    env = jinja2.Environment(loader=jinja2.FunctionLoader(lambda x: (template_file, 'mysql.jinja', lambda: template_file)))
+    template = env.get_template('mysql.jinja')
 
     names = {
         "generate_join": generate_join,
