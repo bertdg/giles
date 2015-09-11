@@ -73,9 +73,11 @@ def error(*strings):
 ######################################################################
 
 from giles import sqlite_backend
+from giles import mysql_backend
 
 backends = {
-    "sqlite": sqlite_backend
+    "sqlite": sqlite_backend,
+    "mysql": mysql_backend
 }
 
 ######################################################################
